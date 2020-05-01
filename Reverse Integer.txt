@@ -1,0 +1,39 @@
+#include<iostream>
+
+using namespace std;
+
+
+
+int reverseInteger(int number)
+{
+	int reversedInt=0, signFlag=0;
+	if (number < 0)
+		signFlag = 1;
+	number = abs(number);
+
+	while (number > 0)
+	{
+		reversedInt = reversedInt * 10 + number % 10;
+		number = number / 10;
+	}
+
+	if (signFlag)
+		reversedInt *= -1;
+
+	return reversedInt;
+
+}
+
+
+
+int main()
+{
+
+
+	int nb = -12345;
+	cout << "Initial number: " << nb << endl << "Reversed: " << reverseInteger(nb) << endl;
+	
+
+	system("pause");
+	return 0;
+}

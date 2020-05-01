@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(452,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (testingGround_1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  main.cpp
+C:\Users\walid\Desktop\C++ Journey\Challenges Solved\String Stream\testingGround_1\main.cpp(43,20): warning C4018:  '<': signed/unsigned mismatch
+  testingGround_1.vcxproj -> C:\Users\walid\Desktop\C++ Journey\Challenges Solved\String Stream\Debug\StringStream.exe

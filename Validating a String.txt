@@ -1,0 +1,28 @@
+#include <string>
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+
+bool isValid(string phrase)
+{
+	
+
+	for (int i = 0; i < phrase.length(); i++)
+	{
+		if (!(phrase.at(i) >= 'A' && phrase.at(i) <= 'Z') && !(phrase.at(i) >= 'a' && phrase.at(i) <= 'z') && !(phrase.at(i) >= '0' && phrase.at(i) <= '9'))
+			return false;
+	}
+	return true;
+
+}
+
+int main() {
+
+	string phrase{ "myPassword123" };
+	
+	cout << std::boolalpha <<isValid(phrase) << endl;
+
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,30 @@
+#include <string>
+#include <iostream>
+using namespace std;
+
+void toggleCase(string &word)
+{
+
+	for (int i = 0; i < word.length(); i++)
+	{
+		if (word.at(i) >= 'A' && word.at(i) <= 'Z')//if the char is in upperCase
+			word.at(i) += 32;
+
+		else if(word.at(i)>='a' && word.at(i)<='z')//if the char is in lowerCase
+			word.at(i) -= 32;
+	}
+
+}
+
+int main() {
+
+	string word{ "Hello World!" };
+	
+
+	toggleCase(word);
+
+	cout << word << endl;
+
+	system("pause");
+	return 0;
+}

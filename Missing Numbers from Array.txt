@@ -1,0 +1,51 @@
+#include<iostream>
+
+
+
+using namespace std;
+
+
+void findMissingElements(int arr[], const int N)//find single missing element
+{
+	int diff = arr[0]-0;
+
+	for (size_t i = 0; i < N; i++)
+	{
+		
+		if (arr[i] - i != diff)
+		{
+			while (diff < arr[i] - i)
+			{
+				cout << "Missing element: " << i + diff << endl;
+				diff++;
+			}
+		}
+
+	}
+
+}
+
+
+void printArray(int arr[], int n)
+{
+
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+
+}
+
+int main()
+{
+	const int N = 11;
+	int* arr = new int[N] {6,7,8,9,11,12,15,16,17,18,19};
+
+	printArray(arr, N);
+
+
+
+	findMissingElements(arr, N);
+
+
+
+}

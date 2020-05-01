@@ -1,0 +1,46 @@
+#include<iostream>
+
+using namespace std;
+
+void printArray(int arr[], int n)
+{
+	cout << "{ ";
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout <<" }" << endl;
+
+}
+
+void printAllSubSequences(int arr[], int arraySize, int arrayCurrentIndex, int ssa[], int CurrentSubSequenceIndex)
+{
+	
+	if (arrayCurrentIndex >= arraySize)
+	{
+		printArray(ssa, CurrentSubSequenceIndex);
+		return;
+	}
+
+	printAllSubSequences(arr, arraySize, arrayCurrentIndex + 1, ssa, CurrentSubSequenceIndex);//excluding current array element
+	
+	ssa[CurrentSubSequenceIndex] = arr[arrayCurrentIndex];
+	
+	printAllSubSequences(arr, arraySize, arrayCurrentIndex + 1, ssa, CurrentSubSequenceIndex+1);//including current array element
+}
+
+
+
+
+int main()
+{
+	const int N = 3;
+	int* arr = new int[N] {1, 2 , 3};
+	int subSequencesArray[N];
+
+
+	printAllSubSequences(arr, N, 0, subSequencesArray, 0);
+
+	
+
+
+
+}

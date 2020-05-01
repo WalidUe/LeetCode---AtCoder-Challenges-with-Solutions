@@ -1,0 +1,46 @@
+#include <string>
+#include <iostream>
+#include<unordered_map> 
+using namespace std;
+
+
+void findDuplicates(string phrase)
+{
+	unordered_map<char, int> myHash;
+
+	for (int i = 0,  j= phrase.length()/2; (i< phrase.length() / 2) && (j<phrase.length()); i++,j++)
+	{
+		if (myHash[phrase.at(i)] == 0)
+			myHash[phrase.at(i)]++;
+		else
+		{
+			cout << "Duplicated element is: " << phrase.at(i) << endl;
+			return;
+		}
+			
+
+		if (myHash[phrase.at(j)] == 0)
+			myHash[phrase.at(j)]++;
+		else
+		{
+			cout << "Duplicated element is: " << phrase.at(j) << endl;
+			return;
+		}
+			
+	}
+
+
+
+
+}
+
+int main() {
+
+	string s1 = "hadd";
+
+	
+	findDuplicates(s1);
+
+	system("pause");
+	return 0;
+}

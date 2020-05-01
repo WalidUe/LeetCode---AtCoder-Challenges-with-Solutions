@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+ 
+using namespace std;
+
+long attack(long x)
+{
+    static unordered_map<long, long> memo;
+    
+   if(x==1)
+     return 1;
+    if( memo.find(x) != memo.end() )//already computed value is found
+        return memo[x];
+    else
+        memo[x] =  attack(x/2) + attack(x/2)+1;
+    
+    return memo[x];
+   
+}
+
+int main()
+{
+ 
+ long n;
+ cin>>n;
+ cout<< attack(n)<<endl;
+   
+   
+    return 0;
+}

@@ -1,0 +1,50 @@
+#include<iostream>
+#include<string>
+#include<unordered_map> 
+
+using namespace std;
+
+
+void findPairWithSum(int arr[], const int N, const int K)//O(n)
+{
+	
+
+	for (size_t i = 0, j=N-1; i < j; )
+	{
+		if (arr[i] + arr[j] == K)
+			cout << "Pair: " << arr[i++] << " | " << arr[j--] << endl;
+
+		else if (arr[i] + arr[j] < K)
+			i++;
+		else
+			j--;
+
+
+	}
+
+}
+
+
+void printArray(int arr[], int n)
+{
+
+	for (int i = 0; i < n; i++)
+		cout << arr[i] << " ";
+	cout << endl;
+
+}
+
+int main()
+{
+	const int N = 11, K = 10;
+	int* arr = new int[N] {0,1,3,4,5,6,8,9,10,12,14};//sorted array. a+b=k=10
+
+	printArray(arr, N);
+
+
+
+	findPairWithSum(arr, N, K);
+
+
+
+}

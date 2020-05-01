@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int climbStairs(int nbSteps)
+{//Time Complexity: O(N), space complexity: O(1).Using Sliding Windows Approach
+     
+     if(nbSteps<2) 
+        return nbSteps;
+   
+        
+    int paths[]={1,1,0};
+    
+    for(int i=2;i<=nbSteps; i++)
+    {
+        paths[2] = paths[1] + paths[0];
+        paths[0]= paths[1];
+        paths[1] = paths[2];
+        
+    }
+        
+        
+    return paths[2];
+        
+}
+
+
+int main()
+{
+  
+    int nbSteps = 4;
+    
+  cout<<climbStairs( nbSteps);
+    
+    return 0;
+}

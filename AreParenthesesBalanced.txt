@@ -1,0 +1,31 @@
+#include <string>
+#include <iostream>
+#include<stack>
+using namespace std;
+
+bool aredParenthesesBalanced(string str)
+{
+	stack<char> myStack;
+	for (unsigned int i = 0; i < str.length(); i++)
+	{
+		if (str.at(i) == '(')
+			myStack.push('(');
+		else if (str.at(i) == ')')
+		{
+			if (myStack.empty())
+				return false;
+
+			myStack.pop();
+		}
+	}
+
+	return myStack.empty();
+}
+
+int main()
+{
+	string str = "(a + b) * (c - d)  ";
+	cout << boolalpha << "Are parentheses Balanced? " << aredParenthesesBalanced(str) << endl;
+
+	return 0;
+}

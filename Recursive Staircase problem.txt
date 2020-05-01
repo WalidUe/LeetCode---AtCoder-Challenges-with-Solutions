@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+//Time Complexity: O(n), Space Complexity: O(n)
+int numWays(int nbSteps)//bottom up approach
+{
+    
+    int *dp = new int[nbSteps+1];
+    //Base Cases
+    dp[0]=1;
+    dp[1]=1;
+    
+    for(int i=2;i<=nbSteps; i++)
+        dp[i]= dp[i-1] + dp[i-2];
+        
+    return dp[nbSteps];
+    
+    
+}
+
+
+int main()
+{
+  
+    int nbSteps = 4;
+    
+  cout<<numWays(nbSteps);
+    
+    return 0;
+}

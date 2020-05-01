@@ -1,0 +1,30 @@
+#include <string>
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+
+int countWords(string phrase)
+{
+	int words=1;
+
+	for (int i = 0; i < phrase.length(); i++)
+	{
+		if (phrase.at(i) == ' ' && phrase.at(i - 1) != ' ')//preventing whiteSpaces
+			words++;
+		
+	}
+	return words;
+
+}
+
+int main() {
+
+	string word{ "Hello World I am   here" };
+	
+
+	cout << "Number of words: "<<countWords(word) << endl;
+
+	system("pause");
+	return 0;
+}

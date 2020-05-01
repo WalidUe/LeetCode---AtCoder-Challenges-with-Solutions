@@ -1,0 +1,90 @@
+#include <string>
+#include <iostream>
+#include<stack>
+using namespace std;
+
+int isOpeningParenthese(char parenthese)//returns 1 if symbol is an opening parenthese, -1 if it's a closing parenthese, 0 otherwise.
+{
+
+	string openingSymbols = { "({[" };
+	string closingSymbols = { ")}]" };
+
+	for (auto symb : openingSymbols)
+		if (parenthese == symb)
+			return 1;
+
+	for (auto symb : closingSymbols)
+		if (parenthese == symb)
+			return -1;
+
+	return 0;
+}
+
+
+
+bool aredParenthesesBalanced(string str)
+{
+	stack<char> myStack;
+	for (unsigned int i = 0; i < str.length(); i++)
+	{
+		if ( isOpeningParenthese (str.at(i)) ==1)//opening symbol
+			myStack.push(str.at(i));
+
+		else if (isOpeningParenthese(str.at(i)) == -1)//closing symbol
+		{
+			
+			switch (str.at(i))
+			{
+				char x ;
+				case')':
+					if (myStack.empty())
+						return false;
+
+					x = myStack.top();
+					myStack.pop();
+					if (x != '(')
+						return false;
+
+					break;
+
+				case'}':
+					if (myStack.empty())
+						return false;
+
+					 x = myStack.top();
+					myStack.pop();
+					if (x != '{')
+						return false;
+
+					break;
+
+
+				case']':
+					if (myStack.empty())
+						return false;
+
+					 x = myStack.top();
+					myStack.pop();
+					if (x != '[')
+						return false;
+
+					break;
+			}
+
+		}
+	}
+
+		
+
+	
+	return myStack.empty();
+}
+
+int main()
+{
+	string str = "({})[]";
+	//string str = "(a + b)) * (c - d) ";
+	cout << boolalpha << "Are parentheses Balanced? " << aredParenthesesBalanced(str) << endl;
+
+	return 0;
+}

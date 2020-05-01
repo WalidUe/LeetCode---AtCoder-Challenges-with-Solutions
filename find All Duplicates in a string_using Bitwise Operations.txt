@@ -1,0 +1,34 @@
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+void findDuplicate(string myString)//finding duplicates using bitwise operations.
+{
+
+	int h = 0, x=0;
+
+	for (int i = 0; i < myString.length(); i++)
+	{
+		x = 1;
+		x = x << myString.at(i) - 97;
+
+		if ((x & h) > 0)//masking to check if a bit is on or off
+			cout << "duplicate is: " << myString.at(i) << endl;
+		else
+			h = x | h;//merging to set the bit as on.
+	}
+
+}
+
+
+int main() {
+
+	findDuplicate("walid woo");
+
+	
+	
+
+	system("pause");
+	return 0;
+}

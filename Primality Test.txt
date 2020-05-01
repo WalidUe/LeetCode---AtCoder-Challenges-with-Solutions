@@ -1,0 +1,54 @@
+#include<iostream>
+
+using namespace std;
+//Time Complexity: O(sqrt(n)). BETTER than the complexity of the previous method.
+bool isPrime2(int num)
+{
+	if (num <= 1)
+		return false;
+
+	for (int i = 2; i * i <= num; i++)
+	{
+		if (num % i == 0)
+		{
+			return false;
+		}
+	}
+
+	return true;
+
+}
+
+//Time Complexity: O(n)
+bool isPrime1(int num)
+{
+	if (num <= 1)
+		return false;
+
+	for (int i = 2; i <= num / 2; i++)
+	{
+		if (num % i == 0)
+		{
+			return false;
+			
+		}
+	}
+	return true;
+}
+
+int main()
+{
+	int nb=0;
+	cout << "Primality Test:\n";
+	while (cin >> nb)
+	{
+		
+		cout << "Is prime? using method1: " << ((isPrime1(nb)) ? "TRUE" : "FALSE") << endl;
+		cout << "Is prime? using method2: " << ((isPrime2(nb)) ? "TRUE" : "FALSE") << endl;
+	}
+		
+
+
+
+	return 0;
+}
